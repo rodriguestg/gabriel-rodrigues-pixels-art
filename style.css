@@ -48,15 +48,6 @@
   display: inline-block;
 }
 
-/*.pixel:active {
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  border: 1px solid black;
-  margin-top: 5px;
-} 
- */
-
 #clear-board {
   border: 1px solid red;
   background-color: brown;

@@ -5,7 +5,7 @@
 }
 
 #title {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .color {
@@ -17,7 +17,7 @@
 
 #cor1 {
   background-color: black;
-  margin-left: 20px;
+  margin-left: 35px;
 }
 
 #cor2 {
@@ -34,6 +34,9 @@
 
 #pixel-board {
   background-color: white;
+  width: 250px;
+  height: 250px;
+  margin-left: 5px;
 }
 
 .pixel {
@@ -42,6 +45,7 @@
   height: 40px;
   border: 1px solid black;
   margin-top: 5px;
+  display: inline-block;
 }
 
 /*.pixel:active {
@@ -50,11 +54,8 @@
   height: 40px;
   border: 1px solid black;
   margin-top: 5px;
-} */
-
-#coluna1, #coluna2, #coluna3, #coluna4, #coluna5 {
-  display: inline-block;
-}
+} 
+ */
 
 #clear-board {
   border: 1px solid red;
@@ -62,6 +63,6 @@
   color: white;
   font-weight: 600;
   text-transform: uppercase;
-  margin-left: 80px;
+  margin-left: 87px;
   padding: 5px;
 }

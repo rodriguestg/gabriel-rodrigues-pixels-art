@@ -5,61 +5,74 @@ function limpeza() {
   for (i = 0; i < pixel.length; i += 1) {
   document.querySelectorAll('.pixel')[i].style.backgroundColor = "white";
   }
+  document.querySelector('#pixel-board').style.backgroundColor = "white";
+}
+
+let cores = []
+for (i = 0; i < 4; i += 1) {
+  cores.push(document.querySelectorAll('.color')[i])
 }
 
 let corSelects = document.querySelector('#color-palette');
 corSelects.addEventListener("mouseover", selecaoDeCor);
 function selecaoDeCor() {
-  let cor1 = document.querySelectorAll('.color')[0];
-  let cor2 = document.querySelectorAll('.color')[1];
-  let cor3 = document.querySelectorAll('.color')[2];
-  let cor4 = document.querySelectorAll('.color')[3];
-  let cores = document.querySelectorAll('.color');
-    cor1.addEventListener("click", selecionandoCor1);
+    cores[0].addEventListener("click", selecionandoCor1);
       function selecionandoCor1 () {
-        for (i = 0; i < cores.length; i += 1){
+        for (i = 0; i < cores.length; i += 1) {
           document.querySelectorAll('.color')[i].classList.remove("selected");
           document.querySelectorAll('.color')[0].className = 'color selected';
         }
       }
-    cor2.addEventListener("click", selecionandoCor2);
+    cores[1].addEventListener("click", selecionandoCor2);
       function selecionandoCor2 () {
-        for (i = 0; i < cores.length; i += 1){
+        for (i = 0; i < cores.length; i += 1) {
           document.querySelectorAll('.color')[i].classList.remove("selected");
           document.querySelectorAll('.color')[1].className = 'color selected';
         }
       }
-    cor3.addEventListener("click", selecionandoCor3);
+    cores[2].addEventListener("click", selecionandoCor3);
       function selecionandoCor3 () {
-        for (i = 0; i < cores.length; i += 1){
+        for (i = 0; i < cores.length; i += 1) {
           document.querySelectorAll('.color')[i].classList.remove("selected");
           document.querySelectorAll('.color')[2].className = 'color selected';
         }
       }
-    cor4.addEventListener("click", selecionandoCor4);
+    cores[3].addEventListener("click", selecionandoCor4);
       function selecionandoCor4 () {
-        for (i = 0; i < cores.length; i += 1){
+        for (i = 0; i < cores.length; i += 1) {
           document.querySelectorAll('.color')[i].classList.remove("selected");
           document.querySelectorAll('.color')[3].className = 'color selected';
         }
       }
 }
 
-
-let corSelecionada = document.querySelector('.selected');
-let pixelSelecionado = document.querySelectorAll('.pixel');
-
 let quadradoDePixel = document.querySelector('#pixel-board');
-quadradoDePixel.addEventListener("mouseover", aplicandoCor);
-function aplicandoCor() {
-  let pixel = document.querySelectorAll('.pixel');
-  for (i = 0; i < pixel.length; i += 1) {
-  document.querySelectorAll('.pixel')[i].style.backgroundColor = "red";
+quadradoDePixel.addEventListener("mouseover", quadro);
+function quadro() {
+  let pixelSelecionado = event.target;
+  if (cores[0].className === 'color selected') {
+    pixelSelecionado.addEventListener("click", aplicandoCor1);
+    function aplicandoCor1() {
+      pixelSelecionado.style.backgroundColor = "black";
+      quadradoDePixel.style.backgroundColor = "white";
+    }
+  } else if (cores[1].className === 'color selected') {
+    pixelSelecionado.addEventListener("click", aplicandoCor2);
+    function aplicandoCor2() {
+      pixelSelecionado.style.backgroundColor = "yellow";
+      quadradoDePixel.style.backgroundColor = "white";
+    }
+  } else if (cores[2].className === 'color selected') {
+    pixelSelecionado.addEventListener("click", aplicandoCor3);
+    function aplicandoCor3() {
+      pixelSelecionado.style.backgroundColor = "red";
+      quadradoDePixel.style.backgroundColor = "white";
+    }
+  } else if (cores[3].className === 'color selected') {
+    pixelSelecionado.addEventListener("click", aplicandoCor4);
+    function aplicandoCor4() {
+      pixelSelecionado.style.backgroundColor = "blue";
+      quadradoDePixel.style.backgroundColor = "white";
+    }
   }
 }
-cor4.addEventListener("click", selecionandoCor4);
-function selecionandoCor4 () {
-//  let corSelecionada = document.getElementById('color');
-// console.log(corSelecionada)
-
-// document.getElementsByClassName('pixel').style.backgroundColor = "red";

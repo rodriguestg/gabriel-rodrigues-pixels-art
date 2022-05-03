@@ -13,41 +13,38 @@ for (let i = 0; i < 4; i += 1) {
   cores.push(document.querySelectorAll('.color')[i]);
 }
 
-const corSelects = document.querySelector('#color-palette');
-corSelects.addEventListener("mouseover", selecaoDeCor);
-function selecaoDeCor() {
-  function selecionandoCor1 () {
-    for (let i = 0; i < cores.length; i += 1) {
-      document.querySelectorAll('.color')[i].classList.remove("selected");
-    }
-    document.querySelectorAll('.color')[0].className = 'color selected';
+function resetSelected() {
+  for (let i = 0; i < cores.length; i += 1) {
+    document.querySelectorAll('.color')[i].classList.remove("selected");
   }
-cores[0].addEventListener("click", selecionandoCor1);
-  function selecionandoCor2 () {
-    for (let i = 0; i < cores.length; i += 1) {
-      document.querySelectorAll('.color')[i].classList.remove("selected");
-    }
-    document.querySelectorAll('.color')[1].className = 'color selected';
-  }
-cores[1].addEventListener("click", selecionandoCor2);
-  function selecionandoCor3 () {
-    for (let i = 0; i < cores.length; i += 1) {
-      document.querySelectorAll('.color')[i].classList.remove("selected");
-    }
-    document.querySelectorAll('.color')[2].className = 'color selected';
-  }
-cores[2].addEventListener("click", selecionandoCor3);
-  function selecionandoCor4 () {
-    for (let i = 0; i < cores.length; i += 1) {
-      document.querySelectorAll('.color')[i].classList.remove("selected");
-    }
-    document.querySelectorAll('.color')[3].className = 'color selected';
-  }
-cores[3].addEventListener("click", selecionandoCor4);
 }
 
+const corSelects = document.querySelector('#color-palette');
+function selecaoDeCor() {
+  function selecionandoCor1() {
+    document.querySelectorAll('.color')[0].className = 'color selected';
+  }
+  cores[0].addEventListener("click", resetSelected);
+  cores[0].addEventListener("click", selecionandoCor1);
+  function selecionandoCor2() {
+    document.querySelectorAll('.color')[1].className = 'color selected';
+  }
+  cores[1].addEventListener("click", resetSelected);
+  cores[1].addEventListener("click", selecionandoCor2);
+  function selecionandoCor3() {
+    document.querySelectorAll('.color')[2].className = 'color selected';
+  }
+  cores[2].addEventListener("click", resetSelected);
+  cores[2].addEventListener("click", selecionandoCor3);
+  function selecionandoCor4() {
+    document.querySelectorAll('.color')[3].className = 'color selected';
+  }
+  cores[3].addEventListener("click", resetSelected);
+  cores[3].addEventListener("click", selecionandoCor4);
+}
+corSelects.addEventListener("mouseover", selecaoDeCor);
+
 const quadradoDePixel = document.querySelector('#pixel-board');
-quadradoDePixel.addEventListener("mouseover", quadro);
 function quadro() {
   const pixelSelecionado = event.target;
   if (cores[0].className === 'color selected') {
@@ -73,3 +70,4 @@ function quadro() {
   }
   pixelSelecionado.addEventListener("click", aplicandoCor1);
 }
+quadradoDePixel.addEventListener("mouseover", quadro);
